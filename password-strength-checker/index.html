@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="A privacy-first password strength checker that evaluates passwords locally in your browser.">
+  <title>Password Strength Checker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="SecureCheck home">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span>Secure<span class="brand-accent">Check</span></span>
+      </a>
+      <span class="privacy-pill"><span class="privacy-dot"></span> Runs locally</span>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">PASSWORD SECURITY TOOL</p>
+      <h1>Make your password<br><span>hard to crack.</span></h1>
+      <p class="intro-copy">Check password strength, spot common patterns, and learn how to improve it. Your password stays in this browser.</p>
+    </section>
+
+    <section class="checker card" aria-labelledby="checker-title">
+      <div class="card-heading">
+        <div>
+          <p class="eyebrow">LIVE ANALYSIS</p>
+          <h2 id="checker-title">Test a password</h2>
+        </div>
+        <span class="shield" aria-hidden="true">⌑</span>
+      </div>
+
+      <label for="password">Your password</label>
+      <div class="password-wrap">
+        <input id="password" type="password" autocomplete="off" autocapitalize="off"
+          spellcheck="false" placeholder="Enter a password to test" aria-describedby="privacy-note">
+        <button id="toggle-password" class="text-button" type="button" aria-pressed="false">Show</button>
+      </div>
+      <p id="privacy-note" class="small-note">🔒 Never enter a password you currently use for a real account.</p>
+
+      <div class="strength-row">
+        <div>
+          <span class="small-label">STRENGTH</span>
+          <p id="strength-label" class="strength-label" aria-live="polite">Waiting for input</p>
+        </div>
+        <p class="score"><strong id="score">0</strong><span> / 100</span></p>
+      </div>
+      <div class="meter" role="progressbar" aria-label="Password strength score" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="meter">
+        <div id="meter-fill" class="meter-fill"></div>
+      </div>
+
+      <div class="checks">
+        <h3>Security checklist</h3>
+        <ul id="checklist">
+          <li data-check="length"><span class="check-icon">○</span><span>At least 12 characters</span></li>
+          <li data-check="long"><span class="check-icon">○</span><span>16 characters or more</span></li>
+          <li data-check="lower"><span class="check-icon">○</span><span>Contains lowercase letters</span></li>
+          <li data-check="upper"><span class="check-icon">○</span><span>Contains uppercase letters</span></li>
+          <li data-check="number"><span class="check-icon">○</span><span>Contains numbers</span></li>
+          <li data-check="symbol"><span class="check-icon">○</span><span>Contains symbols</span></li>
+          <li data-check="common"><span class="check-icon">○</span><span>Avoids common passwords</span></li>
+          <li data-check="pattern"><span class="check-icon">○</span><span>Avoids obvious sequences/repetition</span></li>
+        </ul>
+      </div>
+
+      <div class="advice" aria-live="polite">
+        <div class="advice-icon" aria-hidden="true">↗</div>
+        <div>
+          <h3 id="advice-title">Start with length</h3>
+          <p id="advice-text">A long, unique passphrase is often easier to remember and harder to guess than a short, complicated password.</p>
+        </div>
+      </div>
+
+      <button id="clear" class="clear-button" type="button">Clear password</button>
+    </section>
+
+    <section class="tips-grid" aria-label="Password safety tips">
+      <article class="tip-card">
+        <span class="tip-number">01</span>
+        <h3>Go longer</h3>
+        <p>Prefer long passwords or passphrases. Length adds many more possible combinations.</p>
+      </article>
+      <article class="tip-card">
+        <span class="tip-number">02</span>
+        <h3>Keep it unique</h3>
+        <p>Use a different password for every account. A password manager can help.</p>
+      </article>
+      <article class="tip-card">
+        <span class="tip-number">03</span>
+        <h3>Skip predictable tricks</h3>
+        <p>Names, dates, keyboard patterns, and simple substitutions can still be guessed.</p>
+      </article>
+    </section>
+
+    <footer>
+      <p>Built for learning. This is an educational estimator, not a guarantee of security.</p>
+      <p class="footer-links">No password uploads · No password storage · No analytics</p>
+    </footer>
+  </main>
+</body>
+</html>
